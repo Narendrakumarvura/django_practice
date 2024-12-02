@@ -1,0 +1,10 @@
+<h1>{{ member.first_name }} {{ member.last_name }}</h1>
+<p>Email: {{ member.email }}</p>
+<p>Phone: {{ member.phone }}</p>
+<p>Joined: {{ member.joined_date }}</p>
+<a href="{% url 'member_update' member.pk %}">Edit</a>
+<form method="post" action="{% url 'member_delete' member.pk %}">
+    {% csrf_token %}
+    <button type="submit">Delete</button>
+</form>
+<a href="{% url 'member_list' %}">Back to Members</a>
